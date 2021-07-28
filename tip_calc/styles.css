@@ -50,7 +50,7 @@ h1{
 }
 /* layout */
 .container{
-    width: min(70%,900px);
+    width: min(80%,900px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,6 +72,7 @@ h1{
 .output{
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     height: 95%;
     padding-left: 1rem;
     background-color: var(--clr-primary);
@@ -135,9 +136,11 @@ input{
     border-radius: 5px;
 }
 #reset{
+    margin-bottom: 1.5rem;
+    margin-top: auto;
     margin-inline: auto;
     width: 80%;
-    line-height: 2rem;
+    line-height: 2.5rem;
     font-size: 1rem;
     background-color: var(--clr-highlight);
     font-family: var(--ff-primary);
@@ -148,17 +151,54 @@ input{
 .input-field{
     position: relative;
 }
+input.percent{
+    background-color: var(--clr-lightgrey);
+}
+input.percent::placeholder{
+    text-align: center;
+    font-size: 1.5rem;
+}
+input.percent::placeholder:hover{
+    background-color: var(--clr-lightgrey);
+}
+#custom{
+    color: var(--clr-grey);
+}
+
+/* hover and focus states */
+
+input{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+}
 input:focus{
     font-family: var(--ff-primary);
-    font-size: 1.5rem;
-    color: var(--clr-primary);
     outline-style: solid;
     outline-width: 2.5px;
     box-shadow: 0 0 3px 0 #fff;
     outline-color: var(--clr-highlight);
 }
-.percent:hover{
+.percent:hover, .percent:focus{
     background-color: var(--clr-highlight);
     color: var(--clr-primary);
+}
+#reset:hover , #reset:focus{
+    background-color: var(--clr-background);
+}
+#custom:focus, #custom:hover{
+    background-color: var(--clr-lightgrey);
+
+}
+
+/* mobile view */
+@media all and (max-width: 702px) {
+    .container{
+        flex-direction: column;
+    }
+    .input , .output{
+        margin-inline: 0;
+        width: 90%;
+    }
 }
 
